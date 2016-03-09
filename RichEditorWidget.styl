@@ -1,0 +1,254 @@
+.Medium-placeholder {
+    position: absolute;
+    pointer-events: none;
+}
+
+.RichEditor-StickyFormattingToolbar {
+  background-color: rgba(255,255,255,0.8);
+  position: fixed;
+  z-index: 1
+  
+  &--hidden {
+    display: none;
+  }
+}
+
+.RichEditor-FormattingToolbar {
+  margin-bottom: 1rem
+
+  .RichEditor-FormattingButton {
+    padding: 0.8rem 1rem;
+    margin-right: 1px;
+    background: gray;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    min-width: 3rem;
+    text-align: center;
+  
+    &:hover {
+      background-color: darken(gray, 10%);
+    }
+  }
+  
+  .RichEditor-InsertActionButton {
+    padding: 0.8rem 1rem;
+    margin-right: 1px;
+    background: #555;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    min-width: 3rem;
+    text-align: center;
+  
+    &:hover {
+      background-color: darken(#555, 10%);
+    }
+  }
+
+  .RichEditor-WidgetButton {
+    padding: 0.8rem 1rem;
+    margin-right: 1px;
+    background: #333;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    min-width: 3rem;
+    text-align: center;
+  
+    &:hover {
+      background-color: darken(#333, 10%);
+    }
+  
+  }
+}
+
+.RichText-Widget {
+  position: relative;
+    
+  .RichText-WidgetButtonToolbar {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+  
+  .RichText-WidgetFormattingButton {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    border: 1px solid #fff;
+    border-radius: 0.2rem;
+    background-color: rgba(255,255,255,0.75);
+    cursor: pointer;
+    opacity: 0.3
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+      background-color: white;
+    }
+  }  
+  &:hover .RichText-WidgetFormattingButton {
+    opacity: 1;
+  }
+  
+  .RichText-EditButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  
+}
+
+.ResultTableModal-TableContainer {
+  padding: 3rem 0;
+  
+  .ResultTableModal-MediumEditor {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Styling of content starts here! */
+
+.Article-Header_2,
+.Article-Header_3,
+.Article-Header_4 {
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.Article-Header_2 {
+  font-size: 1.6em;
+}
+
+.Article-Header_3 {
+  font-size: 1.3em;
+}
+.Article-Header_4 {
+  font-size: 1.3em;
+  color: #444;
+  margin-top: 3rem;
+}
+
+.Article-Paragraph {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+
+.Article-Quote {
+    display: block;
+    font-size: 2rem;
+    margin: 1em 0;
+    padding-left: 1em;
+    background: #f9f9f9;
+    border-left: 1rem solid #ccc;
+    quotes: "\201C""\201D""\2018""\2019";
+    
+    &:before {
+      color: #ccc;
+      content: open-quote;
+      font-size: 4em;
+      line-height: 0;
+      margin-right: 0.1em;
+      vertical-align: -0.45em;
+    }
+}
+
+.Article-UnorderedList {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 1em 0;
+}
+.Article-UnorderedList-Item {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
+.RichText-Widget-left {
+  float: left;
+  margin: 0 1em 0.6em 0;
+  width: 40%;
+  min-width: 15rem;
+}
+.RichText-Widget-right {
+  float: right;
+  margin: 0 0 0.6em 1em;
+  width: 40%;
+  min-width: 15rem;
+}
+.RichText-Widget-center {
+  display: block;
+  text-align: center;
+  margin: 2em 0;
+
+}
+.RichText-Widget-inline {
+  display: inline-block;
+}
+
+.RichText-ImageContainer {
+  position: relative;
+  
+  .RichText-Image {
+    width: 100%;
+  }
+
+}
+
+.RichText-PodcastContainer {
+  position: relative;
+  
+  .RichText-Podcast {
+    height: 21rem;
+  }
+}
+
+
+.RichText-YoutubeContainer {
+  position: relative;
+  
+  .RichText-Youtube {
+    height: 21rem;
+  }
+}
+
+
+.RichText-ResultTable {
+  width: 100%
+  counter-reset: resultTableNr;
+  margin: 2rem 0 4rem;
+
+  .RichText-ResultTableRow {
+    border-bottom: 1px solid #ccc;  
+  }
+  
+  .RichText-ResultTableCell {
+    min-height: 1em;
+    padding: 1rem 0.5rem 0.5rem;
+  }
+    
+  .RichText-ResultTableCell-Name {
+    width: 70%;
+    padding-left: 4rem;
+    
+    &:before {
+      position: absolute;
+      left: 0rem;
+      width: 2.7rem;
+      counter-increment: resultTableNr;
+      content: counter(resultTableNr) ".";
+    }
+  }
+  .RichText-ResultTableCell-Result {
+    width: 30%;
+    min-width: 5em;
+    text-align: right;
+  }
+}

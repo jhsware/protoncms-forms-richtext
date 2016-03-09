@@ -1,0 +1,37 @@
+{
+  "name": "protoncms-forms-richtext",
+  "version": "0.1.0",
+  "description": "ProtonCMS -- implements a medium style rich text editor with widgets",
+  "repository" : { 
+      "type" : "git",
+      "url" : "https://github.com/jhsware/protoncms-forms-richtext.git"
+  },
+  "main": "./src/index.js",
+  "dependencies": {
+      "medium.js": "~1.0.1",
+  },
+  "peerDependencies": {
+    "react": "^0.13.0",
+    "protoncms-core": ">=0.1",
+    "component-registry": ">=0.1",
+    "isomorphic-schema": ">=0.1",
+    "protoncms-formlib": ">=0.1",
+    "react-bootstrap": ">=0.21.2"
+  },
+  "devDependencies": {
+    "del": "^1.1.0",
+    "expect.js": "~0.3.1",
+    "gulp": "^3.8.10",
+    "gulp-plumber": "^0.6.6",
+    "gulp-react": "~2.0.0",
+    "gulp-util": "^3.0.1",
+    "mocha": "~1.18.2",
+    "mocha-better-spec-reporter": "^1.1.1",
+    "react-tools": "~0.12.1"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --reporter mocha-better-spec-reporter"
+  },
+  "author": "Sebastian Ware",
+  "license": "Copyright Sebastian Ware"
+}
