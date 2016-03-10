@@ -7,16 +7,28 @@
       "url" : "https://github.com/jhsware/protoncms-forms-richtext.git"
   },
   "main": "./src/index.js",
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "harmony": true
+        }
+      ]
+    ]
+  },
   "dependencies": {
-      "medium.js": "~1.0.1",
+      "medium.js": "~1.0.1"
   },
   "peerDependencies": {
     "react": "^0.13.0",
+    "cheerio": "~0.20.0",
     "protoncms-core": ">=0.1",
     "component-registry": ">=0.1",
     "isomorphic-schema": ">=0.1",
     "protoncms-formlib": ">=0.1",
-    "react-bootstrap": ">=0.21.2"
+    "react-bootstrap": ">=0.21.2",
+    "jquery": "^2.1.3"
   },
   "devDependencies": {
     "del": "^1.1.0",

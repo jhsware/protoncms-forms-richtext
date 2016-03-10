@@ -239,7 +239,7 @@ var PodcastWidgetUtility = createUtility({
         render: function () {
             var resourceUrl = this.state.data.url.replace("http:", "").replace("https:", "");
             return <div className={"RichText-PodcastContainer RichText-Widget-" + this.state.data.align}>
-                <iframe className="RichText-Podcast" width="100%" height="100%" src={resourceUrl} scrolling="no" frameborder="0" style={{border:"none", overflow:"hidden"}}></iframe>
+                <iframe className="RichText-Podcast" width="100%" height="100%" src={resourceUrl} scrolling="no" style={{border:"none", overflow:"hidden"}}></iframe>
                 {this.renderEditButtons()}
             </div>
         }

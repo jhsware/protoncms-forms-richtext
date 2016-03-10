@@ -1,6 +1,32 @@
 # ProtonCMS Rich Text Editor
 A medium style editor with widgets and sticky toolbar. Allows you to add your own widgets and create your own toolbar. Requires you to have a protoncms-style modal where interactions can be made.
 
+
+## Getting Started With the Basic Editor
+
+Import the basic editor
+
+    
+    var BasicRichEditorWidget = require('protoncms-forms-richtext').BasicRichEditorWidget;
+
+and add this custom widget. In this case the HTML is stored in the `body` property and widget data in `widget_data`:
+
+    
+    <CustomInputWidget property="body" 
+        context={{
+            html: {
+                property: 'body',
+                value: context.body
+            }, 
+            widgets: {
+                property: 'widget_data',
+                value: context.widget_data
+            }
+        }} widget={BasicRichEditorWidget} onChange={this.didUpdate} />
+
+
+## Creating Your Customised Editor
+
 Sample setup
 
 	<FormattingToolbar boundary={this.state.toolbarBoundary}>

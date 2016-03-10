@@ -5,7 +5,33 @@ var React = require('react');
 var RichEditorWidgetMixin = require('./RichEditorWidgetMixin');
 var FieldValidationMixin = require('protoncms-formlib').mixins.FieldValidationMixin;
 
+var FormattingToolbar = require('./Formatting').FormattingToolbar;
+var FormattingButton = require('./Formatting').FormattingButton;
+var InsertActionButton = require('./Formatting').InsertActionButton;
+var WidgetButton = require('./Formatting').WidgetButton;
+
 var MediumEditor = require('./MediumEditor');
+
+/*
+    Sample usage:
+    
+    var BasicRichEditorWidget = require('protoncms-forms-richtext').BasicRichEditorWidget;
+    
+    ...
+    
+    <CustomInputWidget property="body" 
+        context={{
+            html: {
+                property: 'body',
+                value: context.body
+            }, 
+            widgets: {
+                property: 'widget_data',
+                value: context.widget_data
+            }
+        }} widget={BasicRichEditorWidget} onChange={this.didUpdate} />
+    
+*/
 
 var EditableDiv = React.createClass({
     

@@ -347,7 +347,7 @@ var Editor = React.createClass({
             };
             var widgetId = 'widget_' + idNr;
             
-            var html = utils.renderPlaceHolderHTML(widgetId);
+            var html = _renderPlaceHolderHTML(widgetId);
             
             // Add new widget
             widgets[widgetId] = {

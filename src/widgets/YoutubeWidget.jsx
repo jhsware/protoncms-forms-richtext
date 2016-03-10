@@ -11,7 +11,6 @@ var IRichTextWidget = require('../interfaces').IRichTextWidget;
 var IAutoFormWidget = require('protoncms-core').interfaces.IAutoFormWidget;
 var IActionBarWidget = require('protoncms-core').interfaces.IActionBarWidget;
 
-var ActionBar = require('../ActionBar');
 var Button = require('react-bootstrap').Button;
 
 // Edit/add widget modal
@@ -238,7 +237,7 @@ var YoutubeWidgetUtility = createUtility({
         
         render: function () {
             return <div className={"RichText-YoutubeContainer RichText-Widget-" + this.state.data.align}>
-                <iframe className="RichText-Youtube" width="100%" height="100%" src={"//youtube.com/embed/" + this.state.data.youtubeId} scrolling="no" frameborder="0" style={{border:"none", overflow:"hidden"}}></iframe>
+                <iframe className="RichText-Youtube" width="100%" height="100%" src={"//youtube.com/embed/" + this.state.data.youtubeId} scrolling="no" style={{border:"none", overflow:"hidden"}}></iframe>
                 {this.renderEditButtons()}
             </div>
         }

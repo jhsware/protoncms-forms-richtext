@@ -1,6 +1,8 @@
 'use strict';
 var registry = require('protoncms-core').registry;
+var React = require('react');
 var createUtility = require('component-registry').createUtility;
+var $ = require('jquery');
 
 var IRichTextAction = require('../interfaces').IRichTextAction;
 
