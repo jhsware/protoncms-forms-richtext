@@ -37,6 +37,13 @@ var EditableDiv = React.createClass({
     
     mixins: [RichEditorWidgetMixin, FieldValidationMixin],
     
+    onChange: function(htmlContent, widgets) {
+        var context = this.props.context;
+        this.props.onChange(context.html.property, htmlContent);
+        this.props.onChange(context.widgets.property, widgets);
+        this._calculateToolbarBoundary();
+    },
+    
     render: function() {
         var htmlValue = this.props.context.html.value;
         

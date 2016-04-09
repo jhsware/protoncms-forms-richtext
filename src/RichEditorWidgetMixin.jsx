@@ -38,13 +38,6 @@ var RichEditorWidgetMixin = {
     didMountWidgets: function () {
         this._calculateToolbarBoundary();
     },
-        
-    onChange: function(htmlContent, widgets) {
-        var context = this.props.context;
-        this.props.onChange(context.html.property, htmlContent);
-        this.props.onChange(context.widgets.property, widgets);
-        this._calculateToolbarBoundary();
-    },
     
     doInvokeElement: function (tagName, opt) {
         this.refs['editor'].doInvokeElement(tagName, opt);
