@@ -25,7 +25,7 @@ var FormattingToolbar = React.createClass({
         
             var flowNode = this.refs['flowing'].getDOMNode();
         
-            var isSticky = (flowNode.offsetTop < (window.scrollY + this.props.boundary.top) && window.scrollY < this.props.boundary.bottom);
+            var isSticky = ($(flowNode).offset().top < (window.scrollY + this.props.boundary.top) && window.scrollY < this.props.boundary.bottom);
         
             if (isSticky !== this.state.isSticky) {
                 this.setState({

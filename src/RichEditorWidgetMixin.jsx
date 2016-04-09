@@ -20,8 +20,8 @@ var RichEditorWidgetMixin = {
         var editorEl = this.refs['editor'].getDOMNode();
         var topBoundaryNode = $(".edit-page")[0]; // TODO: We shouldn't hard code this!!!
         
-        var bottomBoundary = editorEl.offsetTop + editorEl.clientHeight;
-        var topBoundary = topBoundaryNode.offsetTop;
+        var bottomBoundary = $(editorEl).offset().top + editorEl.clientHeight;
+        var topBoundary = $(topBoundaryNode).offset().top;
         
         this.setState({
             toolbarBoundary: { 
