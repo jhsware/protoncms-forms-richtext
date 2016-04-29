@@ -1,6 +1,7 @@
 'use strict';
 var registry = require('protoncms-core').registry;
 var React = require('react');
+var ReactDOM = require('react-dom');
 var createUtility = require('component-registry').createUtility;
 var $ = require('jquery');
 
@@ -21,7 +22,7 @@ var IActionButtonWidget = require('protoncms-core').interfaces.IActionButtonWidg
 var TableCell = React.createClass({
     
     componentDidMount: function () {
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         
         editorEl.innerHTML = this.props.children;
 
@@ -48,7 +49,7 @@ var TableCell = React.createClass({
     },
     
     didChange: function (e) {
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         this.props.onChange(this.props.rowIndex, this.props.colIndex, editorEl.innerHTML);
     },
     

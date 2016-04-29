@@ -1,6 +1,6 @@
 {
   "name": "protoncms-forms-richtext",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "ProtonCMS -- implements a medium style rich text editor with widgets",
   "repository" : { 
       "type" : "git",
@@ -17,7 +17,9 @@
     "babel-core": ">=6.7.5",
     "babel-preset-react": ">=6.5.0",
     
-    "react": ">=0.15.1",
+    "react-dom": ">=15.0.1",
+    "react": ">=15.0.1",
+    
     "cheerio": "~0.20.0",
     "protoncms-core": ">=0.1",
     "component-registry": ">=0.1",

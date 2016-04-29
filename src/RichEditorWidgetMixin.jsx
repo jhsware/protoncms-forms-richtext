@@ -1,5 +1,6 @@
 'use strict';
 var React = require('react');
+var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var RichEditorWidgetMixin = {
@@ -17,7 +18,7 @@ var RichEditorWidgetMixin = {
     _calculateToolbarBoundary: function () {
         if (!this.refs['editor']) { return };
         
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         var topBoundaryNode = $(".edit-page")[0]; // TODO: We shouldn't hard code this!!!
         
         var bottomBoundary = $(editorEl).offset().top + editorEl.clientHeight;

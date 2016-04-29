@@ -1,6 +1,7 @@
 'use strict';
 var registry = require('protoncms-core').registry;
 var React = require('react');
+var ReactDOM = require('react-dom');
 var $ = require('jquery');
 var cheerio = require('cheerio');
 var utils = require('./utils');
@@ -86,7 +87,7 @@ var Editor = React.createClass({
     },
     
     componentDidMount: function () {
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         
         editorEl.innerHTML = this.props.content;
         
@@ -229,7 +230,7 @@ var Editor = React.createClass({
     
     didChange: function (e) {
         // TODO: Need to catch onPaste
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         
         if (editorEl.childElementCount == 0 && editorEl.textContent !== "") {
             // Text only, so we need to wrap it in a paragraph before proceeding
@@ -247,7 +248,7 @@ var Editor = React.createClass({
         this.medium.destroy();
         
         // IMPORTANT! Unmount all widgets explicitly since they are disconnected from rest of app
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         
         for (var key in this.state.widgets) {
             // Get the widget
@@ -277,7 +278,7 @@ var Editor = React.createClass({
     _selectionIsInEditor: function () {
         // Check if current seltion is outside editor
         var startEl = utils.getSelectionBoundaryElement(true);
-        return $(this.refs['editor'].getDOMNode()).has(startEl).length > 0;
+        return $(ReactDOM.findDOMNode(this.refs['editor'])).has(startEl).length > 0;
     },
     
     doInvokeElement: function (elType, opt) {
@@ -303,7 +304,7 @@ var Editor = React.createClass({
         var startEl = utils.getSelectionBoundaryElement(true);
         
         // 2 Find closest parent block level element
-        var blockEl = utils.getBlockEl(this.refs['editor'].getDOMNode(), startEl);
+        var blockEl = utils.getBlockEl(ReactDOM.findDOMNode(this.refs['editor']), startEl);
         
         // 3 Mutate it
         var $el = $(blockEl);
@@ -359,7 +360,7 @@ var Editor = React.createClass({
                 widgets: widgets
             });
                     
-            var editorEl = this.refs['editor'].getDOMNode();
+            var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
             var selBoundEl = utils.getSelectionBoundaryElement(true);
             var blockEl = utils.getBlockEl(editorEl, selBoundEl);
             
@@ -395,7 +396,7 @@ var Editor = React.createClass({
         var widgets = this.state.widgets;
         var widget = this.state.widgets[widgetId];
         
-        var editorEl = this.refs['editor'].getDOMNode();
+        var editorEl = ReactDOM.findDOMNode(this.refs['editor']);
         var $widget = $(editorEl).find("#" + widgetId);
         
         // Get the widget utility

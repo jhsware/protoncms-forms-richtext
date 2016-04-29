@@ -1,5 +1,6 @@
 'use strict';
 var React = require('react');
+var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var FormattingToolbar = React.createClass({
@@ -23,7 +24,7 @@ var FormattingToolbar = React.createClass({
                 return;
             }
         
-            var flowNode = this.refs['flowing'].getDOMNode();
+            var flowNode = ReactDOM.findDOMNode(this.refs['flowing']);
         
             var isSticky = ($(flowNode).offset().top < (window.scrollY + this.props.boundary.top) && window.scrollY < this.props.boundary.bottom);
         

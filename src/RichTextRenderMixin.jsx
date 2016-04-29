@@ -1,5 +1,7 @@
 'use strict';
 var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 var $ = require('jquery');
 var IRichTextWidget = require('./interfaces').IRichTextWidget;
 var cheerio = require('cheerio');
@@ -26,8 +28,8 @@ module.exports = {
                 
                 // Render widget HTML. NOTE: This is to allow spiders to get the full html, and also to get immediate rendering of the DOM-tree
                 // avoiding delay until componentDidMount is called due to the size of the JS-file to be executed. renderToStaticMarkup rather
-                // than renderToString which avoid data-reactid mismarch (server uses random values, client increments from zero).
-                var widgetHTML = React.renderToStaticMarkup(<ViewComponent context={widget.data} widgetId={widget.widgetId} editor={this} />);
+                // than renderToString which avoid data-reactid mismatch (server uses random values, client increments from zero).
+                var widgetHTML = ReactDOMServer.renderToStaticMarkup(<ViewComponent context={widget.data} widgetId={widget.widgetId} editor={this} />);
 
                 // Now inject the widget
                 $body("#" + widget.widgetId).html(widgetHTML);
@@ -50,7 +52,7 @@ module.exports = {
             try {
                 var widgetUtil = registry.getUtility(IRichTextWidget, widget.utilityName);
                 var ViewComponent = widgetUtil.ReactComponent;
-                React.render(<ViewComponent context={widget.data} widgetId={widget.widgetId} editor={this} />, $widget[0]);
+                ReactDOM.render(<ViewComponent context={widget.data} widgetId={widget.widgetId} editor={this} />, $widget[0]);
             } catch (e) {
                 console.log("[RichText] We couldn't find and/or mount the widget: " + widget.utilityName + " (#" + widget.widgetId + ")");
                 console.log(e);
@@ -68,7 +70,7 @@ module.exports = {
             
             // Get the widget utility
             try {
-                React.unmountComponentAtNode($widget[0]);
+                ReactDOM.unmountComponentAtNode($widget[0]);
             } catch (e) {
                 console.log("[RichText] We couldn't unmount the widget: " + widget.utilityName + " (#" + widget.widgetId + ")");
                 console.log(e);
