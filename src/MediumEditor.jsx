@@ -106,7 +106,7 @@ var Editor = React.createClass({
             try {
                 var widgetUtil = registry.getUtility(IRichTextWidget, widget.utilityName);
                 var ViewComponent = widgetUtil.ReactComponent;
-                React.render(<ViewComponent allowEditing context={widget.data} widgetId={widget.widgetId} editor={this}
+                ReactDOM.render(<ViewComponent allowEditing context={widget.data} widgetId={widget.widgetId} editor={this}
                                 onChange={this.didUpdateWidget}
                                 onLoad={this._widgetDidLoadOrFail} />, $widget[0]);
             } catch (e) {
@@ -379,7 +379,7 @@ var Editor = React.createClass({
             var $widget = $(editorEl).find("#" + widgetId);
             
             // We need to mount the react component explicitly
-            React.render(<ViewComponent allowEditing context={data} widgetId={widgetId} editor={this} />, $widget[0]);
+            ReactDOM.render(<ViewComponent allowEditing context={data} widgetId={widgetId} editor={this} />, $widget[0]);
                         
             // We are done!
             callback();
@@ -402,7 +402,7 @@ var Editor = React.createClass({
         // Get the widget utility
         try {
             // Unmount the element..
-            React.unmountComponentAtNode($widget[0]);
+            ReactDOM.unmountComponentAtNode($widget[0]);
             // ...and remove from DOM
             $widget.remove();
             

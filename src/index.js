@@ -18,3 +18,8 @@ module.exports.FormattingToolbar = require('./Formatting').FormattingToolbar;
 module.exports.FormattingButton = require('./Formatting').FormattingButton;
 module.exports.InsertActionButton = require('./Formatting').InsertActionButton;
 module.exports.WidgetButton = require('./Formatting').WidgetButton;
+
+module.exports.interfaces = {
+    IRichTextWidget: require('./interfaces').IRichTextWidget,
+    IRichTextAction: require('./interfaces').IRichTextAction
+}
