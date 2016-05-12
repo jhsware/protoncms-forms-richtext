@@ -221,7 +221,7 @@ var Editor = React.createClass({
         });
         
         // Call the callback so we can get on with our life...
-        callback();
+        callback && callback();
         
         // And do the change notification process
         this.didChange();

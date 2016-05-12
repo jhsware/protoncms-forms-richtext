@@ -246,7 +246,7 @@ var SimpleTableWidgetUtility = createUtility({
             this.setState({
                 data: data
             });
-            // TODO: Call this.props.onChange
+            this.props.onChange(this.props.widgetId, data)
         },
         
         renderEditButtons: function () {
