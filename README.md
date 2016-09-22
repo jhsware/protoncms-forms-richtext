@@ -238,6 +238,15 @@ Action utilities only have a single member
 	action: function (options) {} -- it is passed the options passed to the InsertActionButton through the options
 		 property
 
+### Building the package ###
+
+Just run:
+
+```
+$ npm install
+$ npm run build 
+```
+
 ### TODO
 DONE: ActionBar needs to go into formlib and should be a utility so it can easily be overidden
 	DONE: Create IActionBarWidget in protoncms-core
